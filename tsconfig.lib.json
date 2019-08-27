@@ -1,0 +1,16 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "baseUrl": ".",
+    "outDir": "build/dist",
+    "rootDir": "src/components"
+  },
+  "externals" : {
+    "lodash": {
+      "commonjs": "lodash",
+      "amd": "lodash",
+      "root": "_"
+      // indicates global variable
+    }
+  }
+}

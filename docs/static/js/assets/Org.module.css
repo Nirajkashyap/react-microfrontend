@@ -1,0 +1,8 @@
+.Org-cmp {
+  padding-top: 50px; }
+
+.OrgDetails-cmp .hide {
+  display: none; }
+
+.OrgDetails-cmp .show {
+  color: red; }

@@ -15,7 +15,7 @@ const rollup = require('rollup');
 
 let configFileName;
 let srcDirPath = '../src/modules';
-let outDirPath = 'build/static/js/assets/';
+let outDirPath = 'docs/static/js/assets/';
 
 
 async function build(inputOptions,outputOptions) {

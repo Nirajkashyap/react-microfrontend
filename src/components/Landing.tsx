@@ -17,9 +17,9 @@ interface IProps {
     fetchGithubUserRepos: (githubUserName: string) => void,
     fetchGithubUserReposCancel: () => void,
     fetchGithubUserStart: () => void,
-    fetchGithubUser: (githubUserName: string) => void,
+    fetchGithubUser: (githubUserName: any) => void,
     fetchGithubUserCancel: () => void,
-    search: object,
+    search: any,
     history: {
         push: (path: string) => void
     }
@@ -27,7 +27,7 @@ interface IProps {
 }
 
 interface IState {
-    githubUserName: string;
+    githubUserName: any;
     hideShow: string;
 }
 
@@ -88,7 +88,7 @@ export class Landing extends React.Component<IProps, IState> {
         // when handleSubmit is called will update  nextProps.githubUserLoading via action and then updating url that will trigger same cmp
         // and will go to  componentWillReceiveProps section
         if (nextProps.githubUserLoading && qs.parse(nextProps.location.search).githubUserName) {
-             this.props.fetchGithubUser(qs.parse(nextProps.location.search, {ignoreQueryPrefix: true}).githubUserName);
+             this.props.fetchGithubUser(qs.parse(nextProps.location.search).githubUserName);
          }
 
          if(qs.parse(this.props.search).githubUserName !== qs.parse(nextProps.location.search).githubUserName && !nextProps.githubUserLoading){
@@ -102,7 +102,8 @@ export class Landing extends React.Component<IProps, IState> {
     }
 
     public componentDidMount() {
-        const githubUserName =  qs.parse(this.props.search, {ignoreQueryPrefix: true}).githubUserName;
+        const githubUserName =  qs.parse(this.props.search).githubUserName;
+        // console.log(githubUserName);
         if (githubUserName) {
             this.setState({githubUserName});
             this.props.fetchGithubUserStart();

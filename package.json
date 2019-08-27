@@ -2,6 +2,7 @@
   "name": "github-dashboard",
   "version": "0.1.0",
   "private": true,
+  "homepage": "https://Nirajkashyap.github.io/react-microfrotend",
   "dependencies": {
     "@reactivex/rxjs": "^6.3.2",
     "@types/enzyme": "^3.1.13",
@@ -83,7 +84,9 @@
     "test": "CI=true node scripts/test.js --env=jsdom",
     "rollupbuild": "node scripts/rollup.build.js",
     "rollupbuildserve": "serve -s build -p 8082",
-    "fullstart": "npm run build && npm run rollupbuild && npm run rollupbuildserve"
+    "fullstart": "npm run build && npm run rollupbuild && npm run rollupbuildserve",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
   },
   "devDependencies": {
     "@types/jest": "^23.3.1",

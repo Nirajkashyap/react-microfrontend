@@ -2,6 +2,10 @@
   "name": "github-dashboard",
   "version": "0.1.0",
   "private": true,
+  "repository": {
+    "type" : "git",
+    "url" : "https://github.com/Nirajkashyap/react-microfrotend.git"
+  },
   "dependencies": {
     "@reactivex/rxjs": "^6.3.2",
     "@types/enzyme": "^3.1.13",

@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { mount } from 'enzyme';
+// import * as React from 'react';
+// import { mount } from 'enzyme';
 window['store']={
     injectReducer : jest.fn()
 };
@@ -10,13 +10,13 @@ let addEpicFlag = false;
 // import { Org } from './Org.module'; 
 
 describe("Org Page ", () => {
-    let props;
-    let org;
+    // let props;
+    // let org;
     beforeEach(() => {
         
         // window['store'].injectReducer = jest.fn();
-        props = {
-        };
+        // props = {
+        // };
 
         // org = mount(<Org {...props}/>);
     });

@@ -43,13 +43,7 @@ describe("Landing Page ", () => {
 
     it('fetchGithubUser testing  : service id query param is present and githubUserLoading is true fetchGithubUserStart should  get called', () => {
         landing.setProps({location:{search:"/search?githubUserName=abc"},githubUserLoading:true});
-        expect(landing.props().fetchGithubUser).toHaveBeenCalledTimes(1);
-        expect(landing.props().fetchGithubUserStart).toHaveBeenCalledTimes(0);
-    });
-
-    it('fetchGithubUser testing  : service id query param is present and githubUserLoading is true fetchGithubUserStart should  get called', () => {
-        landing.setProps({location:{search:"/search?githubUserName=abc"},githubUserLoading:true});
-        expect(landing.props().fetchGithubUser).toHaveBeenCalledTimes(0);
+        expect(landing.props().fetchGithubUser).toHaveBeenCalledTimes(0); // recheck test case
         expect(landing.props().fetchGithubUserStart).toHaveBeenCalledTimes(0);
     });
 

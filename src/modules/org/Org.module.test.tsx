@@ -1,3 +1,4 @@
+/* tslint:disable:no-string-literal */
 // import * as React from 'react';
 // import { mount } from 'enzyme';
 window['store']={
@@ -30,3 +31,4 @@ describe("Org Page ", () => {
 
 
 });
+/* tslint:disable:no-string-literal */

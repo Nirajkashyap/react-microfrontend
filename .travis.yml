@@ -45,7 +45,7 @@ script:
   - npm run test
 
 after_success:
-  - echo "after scripts ( npm run test ) auto merge can be also triggerd"
+  - echo "scripts ( npm run test ) success , auto merge can be also triggerd"
   # - "BRANCHES_TO_MERGE_REGEX='^' BRANCH_TO_MERGE_INTO=master GITHUB_REPO=a ./merge.sh"
 
 env:

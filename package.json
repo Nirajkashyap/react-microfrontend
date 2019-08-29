@@ -89,7 +89,7 @@
     "build": "node scripts/build.js  --scssconfig scripts/scssignore.js ",
     "test": "CI=true node scripts/test.js --env=jsdom",
     "rollupbuild": "node scripts/rollup.build.js",
-    "rollupbuildserve": "serve -s docs -p 8082",
+    "rollupbuildserve": "serve -s build -p 8082",
     "fullstart": "npm run build && npm run rollupbuild && npm run rollupbuildserve"
   },
   "devDependencies": {

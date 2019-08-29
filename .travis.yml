@@ -59,9 +59,8 @@ after_failure:
     - echo "trigger email to commit author for failure"
 
 before_deploy:
-- echo "verify script reuslt" 
-- echo "pre steps for genrating artifacts"
-- echo "deployment pre release nottification trigger"
+- echo "pre steps for genrating artifacts for github gh-pages and relative public url in npm run build"
+- PUBLIC_URL=https://nirajkashyap.github.io/react-microfrotend npm run build
 - ls
 - git status
 - pwd
@@ -85,7 +84,7 @@ deploy:
   skip_cleanup: true
   github_token: $github_token_value  # Set in the settings page of your repository, as a secure variable
   keep_history: true
-  local_dir : docs
+  local_dir : build
   target_branch : gh-pages
   on:
     branch: master   

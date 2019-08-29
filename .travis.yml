@@ -62,6 +62,9 @@ before_deploy:
 - echo "verify script reuslt" 
 - echo "pre steps for genrating artifacts"
 - echo "deployment pre release nottification trigger"
+- ls
+- git status
+- pwd
 # - test $TRAVIS_TEST_RESULT = 0 \# check that build passed successfully
   # && cd $TRAVIS_BUILD_DIR \
   # && tar -zcvf amber-storm-$TRAVIS_BRANCH.tar.gz dist

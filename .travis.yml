@@ -77,6 +77,18 @@ deploy:
     all_branches: true
     tags: true
 
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $github_token_value  # Set in the settings page of your repository, as a secure variable
+  keep_history: true
+  local_dir : docs
+  target_branch : gh-pages
+  on:
+    branch: master   
+
+
+
 # after_deploy:
 #   - ssh git@mysite.biz "./deploy.sh $TRAVIS_BRANCH"      
 

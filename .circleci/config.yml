@@ -1,6 +1,8 @@
 version: 2
 jobs:
   node:
+    branches:
+         ignore: gh-pages 
     working_directory: ~/react-microfrotend-demo
     docker:
       - image: circleci/node:8

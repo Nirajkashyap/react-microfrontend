@@ -13,7 +13,7 @@ jobs:
       - restore_cache:
           key: yarn-v1-{{ checksum "yarn.lock" }}-{{ arch }}  
       - run: echo "ignore yarn install"    
-      - run: # yarn install
+      # - run: # yarn install
       - run: echo "npm install"    
       - run: npm install
 

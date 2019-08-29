@@ -5,8 +5,7 @@
 
 language: node_js
 node_js:
-  - "6"
-  - "7"
+  - "11"
   - "node"
 
 addons:
@@ -37,21 +36,22 @@ after_install:
 
 before_script:
   - npm rebuild node-sass
-  - export DISPLAY=:99.0
-  - sh -e /etc/init.d/xvfb start
-  - sleep 3
+  - echo "ignore sh -e /etc/init.d/xvfb start because not using trusty os image"
+  # - export DISPLAY=:99.0
+  # - sh -e /etc/init.d/xvfb start
+  # - sleep 3
 
 script:
   - npm run test
 
 after_success:
-  - echo "after scripts ( npm run test ) auto merge can be also triggerd"
+  - echo "scripts ( npm run test ) success , auto merge can be also triggerd"
   # - "BRANCHES_TO_MERGE_REGEX='^' BRANCH_TO_MERGE_INTO=master GITHUB_REPO=a ./merge.sh"
 
 env:
   global:
-  - secure: cjSbs+51rGnIQeUV/2ekYdZ3uC+k25i5gQittuULyzJrgXMMmBl1p0T1bbC6f2xVBjKmPb09iO7jRK9wAKheD2DXI+boOXk6kppUrVRsKLGqUMVCweAa9wsdi4u8JoW9mGqJCypl0y5T/b7iJYGvHCJLadsET9mvyYCNHM63GRM=
-  - secure: R3O/O5BskbWFSqSN9G1x1EDo83MHiyLue0GVMf5cCV+eiJHkag0A7cxYVGpoWzTx+t1UArMIpGLSzuIMiBpnLsR0vjm3R8UWhYM1ruqJCqdDP1bmJ7uYKGlJau2xHG86fc+190ChSY1l5ipjyui60564Yp02scePbX1aXbQXGbY=
+  - secure: abc
+  - secure: xyz
 
 
 after_failure:

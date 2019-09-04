@@ -4,7 +4,7 @@
   "private": true,
   "repository": {
     "type": "git",
-    "url": "https://github.com/Nirajkashyap/react-microfrotend.git"
+    "url": "https://github.com/Nirajkashyap/react-microfrontend.git"
   },
   "dependencies": {
     "@babel/preset-env": "^7.5.5",

@@ -1,7 +1,7 @@
 /* tslint:disable:no-string-literal */
 import {createStore, applyMiddleware , combineReducers } from 'redux';
 import {routerMiddleware, connectRouter} from 'connected-react-router'
-import {createBrowserHistory} from 'history'
+import {createBrowserHistory, createHashHistory} from 'history'
 import {createEpicMiddleware, combineEpics} from 'redux-observable';
 // import {RouterState} from 'connected-react-router'
 import {composeWithDevTools} from 'redux-devtools-extension';
@@ -19,7 +19,21 @@ import {rootReducerTree, rootReducer} from '../reducers/index'
 // const epicMiddleware = createEpicMiddleware();
 const epicMiddleware = createEpicMiddleware<any, any, any, any>();
 
-export const history = createBrowserHistory();
+let historyObj;
+if(process.env.REACT_APP_HASH_HISTORY === "true"){
+    historyObj = createHashHistory({
+        basename: '', // The base URL of the app (see below)
+        hashType: 'slash', // The hash type to use (see below)
+        // A function to use to confirm navigation with the user (see below)
+        
+      });
+      
+}else{
+    
+    historyObj = createBrowserHistory();
+}
+
+export const history = historyObj
 
 const epicRegistry = [loginEpic, fetchGithubUserEpic];
 window['epicRegistry'] = epicRegistry;

@@ -5,10 +5,12 @@ import OrgDetailsContainer from './containers/Org';
 
 
 /* tslint:disable:no-string-literal */
-// add reducer to root reducer
+// add all reducer to root reducer
 import  { orgReducer }  from './reducers/Org';
 // window['tempStore'] = window['store'].getState();
 window['store'].injectReducer('orgReducer' , orgReducer);
+
+
 // add epic of module
 import { fetchGithubOrgEpic } from './epic/org';
 let addEpicFlag = true;

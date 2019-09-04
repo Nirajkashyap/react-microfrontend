@@ -68,30 +68,30 @@ export default class OrgDetails extends React.Component<any, IState> {
 
         }
     }
-    /* componentWillReceiveProps will be never called as on handleSubmit we change route and its (loading js or creating new cmp) again
-     // this will not work like regular react redux connected component )
+    
+    
     public componentWillReceiveProps( nextProps) {
         console.log(this.props  ,nextProps);
         // nextProps.githubOrgLoading flag is used when handleChange is called and will update state but we don't want to call api
         // when handleSubmit is called will update  nextProps.githubOrgLoading via action and then updating url that will trigger same cmp
         // and will go to  componentWillReceiveProps section
         if (nextProps.githubOrgLoading) {
-            this.props.fetchGithubOrg(qs.parse(nextProps.location.search, {ignoreQueryPrefix: true}).githubOrgName);
+            this.props.fetchGithubOrg(qs.parse(nextProps.search, {ignoreQueryPrefix: true}).githubOrgName);
         }
 
-        if(qs.parse(this.props.search).githubOrgName !== qs.parse(nextProps.location.search).githubOrgName && !nextProps.githubOrgLoading){
+        if(qs.parse(this.props.search).githubOrgName !== qs.parse(nextProps.search).githubOrgName && !nextProps.githubOrgLoading){
             this.props.fetchGithubOrgStart();
         }
     }
-    */
+    
 
     public componentDidMount() {
         const githubOrgName =  qs.parse(this.props.search, {ignoreQueryPrefix: true}).githubOrgName;
         if (githubOrgName) {
             this.setState({githubOrgName});
-            // this.props.fetchGithubOrgStart();
+            this.props.fetchGithubOrgStart();
             // console.log(qs);
-            this.props.fetchGithubOrg(qs.parse(this.props.search, {ignoreQueryPrefix: true}).githubOrgName);
+            // this.props.fetchGithubOrg(qs.parse(this.props.search, {ignoreQueryPrefix: true}).githubOrgName);
             console.log(this.props,this.state)
 ;        }
     }

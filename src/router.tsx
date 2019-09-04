@@ -125,12 +125,17 @@ const AsyncPrivateRoute = ({component: Component, ...rest}) => (
             if (runtimePath) {
 
                 // TODO pending caching control
-                if(runtimePath['isLoaded'] && false){
+                if(runtimePath['isLoaded'] ){
                     // decide which cmp to return from exposedModule
                     console.log(window['appPaths'][key]['exposedModule']['index']);
-                    const tempCmp = new window['appPaths'][key]['exposedModule']['index']();
+                    
+                    const tempCmp =  window['appPaths'][key]['exposedModule']['index'];
+                    console.log(tempCmp);
+                    const Cmp = React.createElement(tempCmp, props, null);
+                    console.log(Cmp);
+                    
                     return (<div>
-                                {tempCmp}
+                               {Cmp}
                             </div>)
                   // return   window['appPaths'][key]['exposedModule']['index'];
 

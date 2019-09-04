@@ -30,7 +30,9 @@ export const loginEpic = (action$ : any) => {
                                     withCredentials : false
                                 },
                                 loginFullfilled , () => {
-                alert('invalid username or password');
+                alert('invalid username or password but make cookie to explore auth url (path)');
+                // remove below line
+                document.cookie = "isLoggedin=true";
                 return of();
                 },
                 action$)

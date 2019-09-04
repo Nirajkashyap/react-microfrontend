@@ -5,6 +5,7 @@ import {Provider} from 'react-redux';
 import { history, store  } from './store/store'
 import './index.css';
 import routes from './router'
+import ErrorBoundary from './ErrorBoundary'
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
@@ -56,11 +57,13 @@ window['appendStyle'] =  (styles)=>{
 };
 
 ReactDOM.render(
-    <Provider store={store} >
-                <ConnectedRouter history={history}>
-                    { routes }
-                </ConnectedRouter>
-            </Provider>,
+    <ErrorBoundary>
+        <Provider store={store} >
+            <ConnectedRouter history={history}>
+                { routes }
+            </ConnectedRouter>
+        </Provider>
+    </ErrorBoundary>,
     document.getElementById('root') as HTMLElement
 );
 

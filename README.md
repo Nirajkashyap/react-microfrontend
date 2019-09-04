@@ -1,7 +1,7 @@
-[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Nirajkashyap/react-microfrotend/blob/master/LICENSE) 
-[![CircleCI Status](https://circleci.com/gh/facebook/react.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/Nirajkashyap/react-microfrotend)
-[![Build Status](https://travis-ci.org/Nirajkashyap/react-microfrotend.svg?branch=master)](https://travis-ci.org/Nirajkashyap/react-microfrotend)
-[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Nirajkashyap_react-microfrotend&metric=alert_status)](https://sonarcloud.io/dashboard?id=Nirajkashyap_react-microfrotend)
+[![GitHub license](https://img.shields.io/badge/license-MIT-blue.svg)](https://github.com/Nirajkashyap/react-microfrontend/blob/master/LICENSE) 
+[![CircleCI Status](https://circleci.com/gh/facebook/react.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/Nirajkashyap/react-microfrontend)
+[![Build Status](https://travis-ci.org/Nirajkashyap/react-microfrontend.svg?branch=master)](https://travis-ci.org/Nirajkashyap/react-microfrontend)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Nirajkashyap_react-microfrontend&metric=alert_status)](https://sonarcloud.io/dashboard?id=Nirajkashyap_react-microfrontend)
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 

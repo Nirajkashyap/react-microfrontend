@@ -3,7 +3,7 @@ jobs:
   node:
     branches:
          ignore: gh-pages 
-    working_directory: ~/react-microfrotend-demo
+    working_directory: ~/react-microfrontend-demo
     docker:
       - image: circleci/node:8
     steps:

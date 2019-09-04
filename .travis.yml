@@ -60,7 +60,7 @@ after_failure:
 
 before_deploy:
 - echo "pre steps for genrating artifacts for github gh-pages and relative public url in npm run build"
-- PUBLIC_URL=https://nirajkashyap.github.io/react-microfrotend npm run build
+- PUBLIC_URL=https://nirajkashyap.github.io/react-microfrontend npm run build
 - ls
 - git status
 - pwd

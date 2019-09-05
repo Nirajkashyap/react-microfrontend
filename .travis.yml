@@ -43,6 +43,8 @@ before_script:
 
 script:
   - npm run test
+  - echo "pre-check do npm run build also to ignore ts build error in build task"
+  - npm run build 
 
 after_success:
   - echo "scripts ( npm run test ) success , auto merge can be also triggerd"

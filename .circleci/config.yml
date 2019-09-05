@@ -1,8 +1,10 @@
 version: 2
 jobs:
   node:
-    branches:
-         ignore: gh-pages 
+    filters:
+      branches:
+        ignore:
+          - gh-pages
     working_directory: ~/react-microfrontend-demo
     docker:
       - image: circleci/node:8

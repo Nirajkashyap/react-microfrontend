@@ -124,7 +124,7 @@ const AsyncPrivateRoute = ({component: Component, ...rest}) => (
 
             if (runtimePath) {
 
-                // TODO pending caching control
+                // caching control
                 if(runtimePath['isLoaded'] ){
                     // decide which cmp to return from exposedModule
                     console.log(window['appPaths'][key]['exposedModule']['index']);

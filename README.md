@@ -4,6 +4,11 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Nirajkashyap_react-microfrontend&metric=alert_status)](https://sonarcloud.io/dashboard?id=Nirajkashyap_react-microfrontend)
 [![HitCount](http://hits.dwyl.io/Nirajkashyap/react-microfrontend.svg)](http://hits.dwyl.io/Nirajkashyap/react-microfrontend)
 
+Some Env used in project 
+REACT_APP_SUB_MODULE - used for defining javascript source url for SUB_MODULE - configured in travis ci env
+REACT_APP_HASH_HISTORY -  used to decide which histroy object to use. example useful for build hash histroy for gh-pages  - configured in travis ci env
+REACT_APP_API_URL - used to config api location 
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>

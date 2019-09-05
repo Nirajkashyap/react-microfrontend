@@ -2,6 +2,7 @@
 [![CircleCI Status](https://circleci.com/gh/facebook/react.svg?style=shield&circle-token=:circle-token)](https://circleci.com/gh/Nirajkashyap/react-microfrontend)
 [![Build Status](https://travis-ci.org/Nirajkashyap/react-microfrontend.svg?branch=master)](https://travis-ci.org/Nirajkashyap/react-microfrontend)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Nirajkashyap_react-microfrontend&metric=alert_status)](https://sonarcloud.io/dashboard?id=Nirajkashyap_react-microfrontend)
+[![HitCount](http://hits.dwyl.io/Nirajkashyap/react-microfrontend.svg)](http://hits.dwyl.io/Nirajkashyap/react-microfrontend)
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 

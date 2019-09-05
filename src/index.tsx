@@ -40,9 +40,6 @@ window['appPaths']['org'] =  {
 if(process.env.REACT_APP_SUB_MODULE === "true"){
     window['appPaths']['org'].src = 'https://nirajkashyap.github.io/react-microfrontend-submodule/static/js/assets/Org.module.js'
       
-}else{
-    
-    
 }
 
 

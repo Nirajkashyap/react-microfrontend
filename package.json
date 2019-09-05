@@ -90,13 +90,16 @@
     "test": "CI=true node scripts/test.js --env=jsdom",
     "rollupbuild": "node scripts/rollup.build.js",
     "rollupbuildserve": "serve -s build -p 8082",
-    "fullstart": "npm run build && npm run rollupbuild && npm run rollupbuildserve"
+    "fullstart": "npm run build && npm run rollupbuild && npm run rollupbuildserve",
+    "pre-commit": "npm run build",
+    "pre-push": "npm run build"
   },
   "devDependencies": {
     "@types/jest": "^23.3.1",
     "@types/node": "^10.9.4",
     "@types/react": "^16.4.13",
     "@types/react-dom": "^16.0.7",
+    "husky": "^3.0.5",
     "node-sass": "^4.9.3",
     "sass-loader": "^7.1.0",
     "typescript": "^3.0.3"

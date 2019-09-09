@@ -4,10 +4,28 @@
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=Nirajkashyap_react-microfrontend&metric=alert_status)](https://sonarcloud.io/dashboard?id=Nirajkashyap_react-microfrontend)
 [![HitCount](http://hits.dwyl.io/Nirajkashyap/react-microfrontend.svg)](http://hits.dwyl.io/Nirajkashyap/react-microfrontend)
 
-Some Env used in project 
-REACT_APP_SUB_MODULE - used for defining javascript source url for SUB_MODULE - configured in travis ci env
-REACT_APP_HASH_HISTORY -  used to decide which histroy object to use. example useful for build hash histroy for gh-pages  - configured in travis ci env
-REACT_APP_API_URL - used to config api location 
+<h1> update after typescript Create React App base </h1> 
+1.
+<h2> dynamic-import and code spliting </h2>
+dynamic-import from url was not working like import('https://otherhost.com/someother.js') <br> 
+reference : https://github.com/tc39/proposal-dynamic-import  <br>
+
+get react component code only and don't want to load react lib  than <a href="https://rollupjs.org/guide/en/">rollup</a> is here to rescue
+
+[routing code base](./src/router.tsx) for code-spliting <br>
+[rollup script](./scripts/rollup.build.js) to build sub module component
+
+2.
+default scss loader added in webpack config and [scss valdiator script](./scripts/scss.js) is added in [build process](https://github.com/Nirajkashyap/react-microfrotend/blob/b920d7dc720819a6a027d7cd9ae1ed7e536857c1/scripts/build.js#L116) 
+
+
+3.
+Some Env used in project<br> 
+REACT_APP_SUB_MODULE - used for defining javascript source url for SUB_MODULE - configured in travis ci env<br>
+REACT_APP_HASH_HISTORY -  used to decide which histroy object to use. example useful for build hash histroy for gh-pages  - configured in travis ci env<br>
+REACT_APP_API_URL - used to config api location <br>
+
+<h1> typescript Create React App base </h1> 
 
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
@@ -23,7 +41,8 @@ You can find the most recent version of this guide [here](https://github.com/fac
   - [npm start](#npm-start)
   - [npm test](#npm-test)
   - [npm run build](#npm-run-build)
-  - [npm run eject](#npm-run-eject)
+  - [npm run rollupbuild](#npm-run-rollupbuild)
+  - [npm run fullstart](#npm-run-fullstart)
 - [Supported Browsers](#supported-browsers)
 - [Supported Language Features and Polyfills](#supported-language-features-and-polyfills)
 - [Syntax Highlighting in the Editor](#syntax-highlighting-in-the-editor)
@@ -198,6 +217,15 @@ The build is minified and the filenames include the hashes.<br>
 Your app is ready to be deployed!
 
 See the section about [deployment](#deployment) for more information.
+
+### `npm run rollupbuild`   
+prepare sub module/component build from rollup js by extracting other build lib like react and react-route   
+
+### `npm run rollupbuildserve`   
+to server rollupbuild from static server
+
+### `npm run fullstart`   
+run end to end application
 
 ### `npm run eject`
 

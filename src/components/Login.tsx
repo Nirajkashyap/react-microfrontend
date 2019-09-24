@@ -39,8 +39,10 @@ export default class Login extends React.Component<IProps,any> {
 
     public handleSubmit(event) {
         event.preventDefault();
+        
         this.props.login(this.state.username,this.state.password);
-        return ('<')
+        // api response 200, make cookie, LOGIN_FULLFILLED action is also called
+        
     }
 
     public componentWillMount(){

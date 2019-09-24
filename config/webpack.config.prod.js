@@ -5,7 +5,7 @@ const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 // const ExtractTextPlugin = require('extract-text-webpack-plugin');
-// const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const ManifestPlugin = require('webpack-manifest-plugin');
 const InterpolateHtmlPlugin = require('react-dev-utils/InterpolateHtmlPlugin');
 const SWPrecacheWebpackPlugin = require('sw-precache-webpack-plugin');
@@ -191,12 +191,12 @@ module.exports = {
                         use: [
                             "style-loader",
                         // // use below MiniCssExtractPlugin if don't need style-loader tag and need css file       
-                        //   {
-                        //     loader: MiniCssExtractPlugin.loader,
-                        //     options: {
-                        //       hmr: process.env.NODE_ENV === 'development',
-                        //     },
-                        //   },
+                          {
+                            loader: MiniCssExtractPlugin.loader,
+                            options: {
+                              hmr: process.env.NODE_ENV === 'development',
+                            },
+                          },
                         { loader: 'css-loader', options: { sourceMap: true } },
                            // 'postcss-loader',
                         { loader: 'sass-loader', options: { sourceMap: true } },
@@ -381,12 +381,13 @@ module.exports = {
         //     filename: cssFilename,
         // }),
 
-        // new MiniCssExtractPlugin({
-        //     // Options similar to the same options in webpackOptions.output
-        //     // both options are optional
-        //     filename: devMode ? '[name].css' : '[name].[hash].css',
-        //     chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
-        //   }),
+        new MiniCssExtractPlugin({
+            // Options similar to the same options in webpackOptions.output
+            // both options are optional
+            filename: devMode ? '[name].css' : '[name].[hash].css',
+            chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
+          }),
+
         // new ExtractTextPlugin({
         //     filename: cssFilename,
         // }),

@@ -87,7 +87,7 @@
   "scripts": {
     "start": "node scripts/start.js --scssconfig scripts/scssignore.js",
     "lib": "node scripts/lib.js --scssconfig scripts/scssignore.js",
-    "build": "node scripts/build.js  --scssconfig scripts/scssignore.js ",
+    "build": "GENERATE_SOURCEMAP=false node scripts/build.js  --scssconfig scripts/scssignore.js ",
     "test": "CI=true node scripts/test.js --env=jsdom",
     "rollupbuild": "node scripts/rollup.build.js",
     "rollupbuildserve": "serve -s build -p 8082",

@@ -42,6 +42,19 @@ if(process.env.REACT_APP_SUB_MODULE === "true"){
       
 }
 
+window['eraseCookieFromAllPaths'] = (name) => {
+    // This function will attempt to remove a cookie from all paths.
+    const pathBits = location.pathname.split('/');
+    let pathCurrent = ' path=';
+
+    // do a simple pathless delete first.
+    document.cookie = name + '=; expires=Thu, 01-Jan-1970 00:00:01 GMT;';
+
+    for (const temp of pathBits) {
+        pathCurrent += ((pathCurrent.substr(-1) !== '/') ? '/' : '') + temp;
+        document.cookie = name + '=; expires=Thu, 01-Jan-1970 00:00:01 GMT;' + pathCurrent + ';';
+    }
+}
 
 
 window['appendStyle'] =  (styles)=>{

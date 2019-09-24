@@ -11,7 +11,7 @@ import {
 // type import
 import { LoginStart  } from '../actions/index';
 // method import
-import { loginFullfilled } from '../actions/index';
+// import { loginFullfilled } from '../actions/index';
 import { FetchGithubUser, fetchGithubUserFulfilled    } from '../actions/GithubUser';
 import { FetchGithubUserRepos, fetchGithubUserReposFulfilled    } from '../actions/GithubUserRepos';
 import { getRequest , postRequest} from '../utils/apiFetch';
@@ -29,7 +29,12 @@ export const loginEpic = (action$ : any) => {
                                     body : {username:action.user.username,password:action.user.password},
                                     withCredentials : false
                                 },
-                                loginFullfilled , () => {
+                                (response) => {
+
+                                    console.log(response);
+                                    document.cookie = "isLoggedin=true";
+                                    return concat([{ type : 'LOGIN_FULLFILLED'}]);
+                                } , () => {
                 alert('invalid username or password but make cookie to explore auth url (path) and reload page');
                 // remove below line
                 document.cookie = "isLoggedin=true";

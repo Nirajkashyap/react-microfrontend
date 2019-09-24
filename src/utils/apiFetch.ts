@@ -74,9 +74,7 @@ export function postRequest(requestOptions : any, recievingFunction: any, reciev
 
     return ajax(mergedRequestOptions).pipe(
         map(response => {
-            if(requestOptions.url.indexOf('login')> -1){
-                document.cookie = "isLoggedin=true";
-            }
+            
             return recievingFunction(response.response);
         }),
         takeUntil(action$.pipe(

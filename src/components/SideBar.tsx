@@ -25,7 +25,7 @@ export default class SideBar extends React.Component<any, any> {
     public render() {
         if(this.props.pathname.substring(1) !== 'login'){
             return (
-                <div className="SideBar-cmp col-sm-3">
+                <div className="SideBar-component col-sm-3">
                     <div className="navbar-container">
                         <nav className="nav nav-pills flex-column">
                             {this.state.sideBarLinks.map((linkObject, index) => (

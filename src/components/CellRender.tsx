@@ -14,7 +14,7 @@ class CellRender extends React.Component<any, any> {
 
     public render() {
         return (
-            <div className="CellRender-cmp btn"
+            <div className="CellRender-component btn"
                     style={{height: 20, lineHeight: 0.5}}
                     onClick={this.invokeParentMethod}
                     >{this.props.value}</div>

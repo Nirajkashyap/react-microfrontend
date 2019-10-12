@@ -54,8 +54,8 @@ module.exports = function (configFileName) {
                     let expectedClassName = tempFileNameArray[tempFileNameArray.length - 1].split(".")[0];
                     console.log("get all classname of root div in array " , className.split(" ") );
                    
-                    // console.log(className.split(" ").includes(expectedClassName+'-cmp'));
-                    if (className.split(" ").includes(expectedClassName+'-cmp')) {
+                    // console.log(className.split(" ").includes(expectedClassName+'-component'));
+                    if (className.split(" ").includes(expectedClassName+'-component')) {
                         // console.log("correct classname for root div of jsx/tsx");
                         // console.log(directories+ '/'+ expectedClassName+'.scss');
                         const scssFile = directories + '/' + expectedClassName + '.scss';
@@ -220,7 +220,7 @@ module.exports = function (configFileName) {
 
 
 
-                                        var classNameKeyReg = new RegExp('.' + expectedClassName + '-cmp', "g");
+                                        var classNameKeyReg = new RegExp('.' + expectedClassName + '-component', "g");
                                         // console.log(fileName , data.match(classNameKeyReg));
                                         if (data.match(classNameKeyReg) === null || data.match(classNameKeyReg).length !== 1) {
                                             console.log('component className is not used or used multiple time  ' + fileName);

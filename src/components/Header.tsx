@@ -46,7 +46,7 @@ export default class Header extends React.Component<any, any> {
 
         if (this.props.pathname.substring(1) !== 'login') {
             return (
-                <div className="Header-cmp">
+                <div className="Header-component">
                     <Navbar color="light" light expand="md">
                         <NavbarBrand href="/">Github User Repo Dashboard</NavbarBrand>
                         <NavbarToggler onClick={this.toggle}/>

@@ -6,7 +6,7 @@ const glob = require("glob");
 
 module.exports = function (configFileName) {
 
-    console.log(configFileName ,' ...');
+    console.log('configFileName ' , configFileName);
 
     // console.log(path.join(__dirname,  configFileName))
     let configFile =  configFileName ? require(configFileName) : '';
@@ -17,8 +17,9 @@ module.exports = function (configFileName) {
 
         ignoreFiles = ignoreFiles.concat(configFile.ignoreFiles)
     }
-    const srcDir = path.join(__dirname,'../src/components');
-    console.log(ignoreFiles);
+    let srcDirPath = configFile.srcDir ? configFile.srcDir : ".";
+    const srcDir = path.join(path.resolve("."),srcDirPath);
+    console.log("ignoreFiles ",ignoreFiles);
     glob("**/*.tsx", { cwd  : srcDir , ignore : ignoreFiles}, function (er, files) {
         // files is an array of filenames.
         // If the `nonull` option is set, and nothing
@@ -33,6 +34,8 @@ module.exports = function (configFileName) {
             // console.log(basename)
             let errorFlag = false;
             fs.readFile(fileName, 'utf8', function (err, contents) {
+                // note 
+                console.log("regex is to get first root div in jsx i.e after return statement first root div");
                 // const regex = /render\(\)\s+{\s+return\s\(\s+<.*>/g;
                 // const regex = /return\s\(\s.<.*>/g
                 const regex = /return\s*\((.|\n)*<(.|\n)*>/g
@@ -50,9 +53,10 @@ module.exports = function (configFileName) {
 
                     let tempFileNameArray = fileName.split("/");
                     let expectedClassName = tempFileNameArray[tempFileNameArray.length - 1].split(".")[0];
-                    // console.log(className.split(" "));
-                    // console.log(className.split(" ").includes(expectedClassName+'-cmp'));
-                    if (className.split(" ").includes(expectedClassName+'-cmp')) {
+                    console.log("get all classname of root div in array " , className.split(" ") );
+                   
+                    // console.log(className.split(" ").includes(expectedClassName+'-component'));
+                    if (className.split(" ").includes(expectedClassName+'-component')) {
                         // console.log("correct classname for root div of jsx/tsx");
                         // console.log(directories+ '/'+ expectedClassName+'.scss');
                         const scssFile = directories + '/' + expectedClassName + '.scss';
@@ -217,7 +221,7 @@ module.exports = function (configFileName) {
 
 
 
-                                        var classNameKeyReg = new RegExp('.' + expectedClassName + '-cmp', "g");
+                                        var classNameKeyReg = new RegExp('.' + expectedClassName + '-component', "g");
                                         // console.log(fileName , data.match(classNameKeyReg));
                                         if (data.match(classNameKeyReg) === null || data.match(classNameKeyReg).length !== 1) {
                                             console.log('component className is not used or used multiple time  ' + fileName);

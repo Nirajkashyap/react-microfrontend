@@ -114,7 +114,7 @@ export class Landing extends React.Component<IProps, IState> {
 
     public render() {
         return (
-            <div className="col-sm-9 Landing-cmp">
+            <div className="col-sm-9 Landing-component">
                 <div className="search-css">
                     <h3><span className="badge badge-secondary"> Dashboard</span></h3>
                     <br/><br/>

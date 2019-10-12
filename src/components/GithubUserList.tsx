@@ -43,7 +43,7 @@ class GithubUserList extends React.Component<any, any> {
     public render() {
         return (
             <div
-                className="col-sm-9 ag-theme-balham  GithubUserList-cmp"
+                className="col-sm-9 ag-theme-balham  GithubUserList-component"
                 style={{
                     height: '500px'
                 }}

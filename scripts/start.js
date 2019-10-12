@@ -8,9 +8,8 @@ var argv = require('minimist')(process.argv.slice(2));
 // console.log(argv);
 // console.log(argv.scssconfig);
 let ignoreFile;
-if(argv.scssconfig){
-    // console.log(argv.scssconfig)
-    ignoreFile =  path.join(__dirname, '..', argv.scssconfig)
+if(argv.componentScssConfig){
+    ignoreFile =  path.join(path.resolve("."),  argv.componentScssConfig)
 }else{
     ignoreFile = null;
 }
@@ -30,7 +29,8 @@ const webpack = require('webpack');
 const WebpackDevServer = require('webpack-dev-server');
 const clearConsole = require('react-dev-utils/clearConsole');
 const checkRequiredFiles = require('react-dev-utils/checkRequiredFiles');
-const scssFileTest = require('./scss');
+const componentScssValidation=require('./ComponentScssValidation');
+const componentScssValidationNpm=require('./ComponentScssValidationFromNpm');
 const {
     choosePort,
     createCompiler,
@@ -77,7 +77,9 @@ choosePort(HOST, DEFAULT_PORT)
             // We have not found a port.
             return;
         }
-        scssFileTest(ignoreFile);
+        console.log("deprecated :::::: componentScssValidation using new :::: componentScssValidationNpm in webpack build ")
+        // componentScssValidation(ignoreFile);
+        componentScssValidationNpm(ignoreFile);
         const protocol = process.env.HTTPS === 'true' ? 'https' : 'http';
         const appName = require(paths.appPackageJson).name;
         const urls = prepareUrls(protocol, HOST, port);

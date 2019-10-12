@@ -12,7 +12,7 @@ class DateRender extends React.Component<any, any> {
     public render() {
         return (
 
-                <div className="DateRender-cmp">{this.state.value}</div>
+                <div className="DateRender-component">{this.state.value}</div>
         )
     }
 };

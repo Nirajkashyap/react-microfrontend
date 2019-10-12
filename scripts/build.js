@@ -26,7 +26,8 @@ const formatWebpackMessages = require('react-dev-utils/formatWebpackMessages');
 const printHostingInstructions = require('react-dev-utils/printHostingInstructions');
 const FileSizeReporter = require('react-dev-utils/FileSizeReporter');
 const printBuildError = require('react-dev-utils/printBuildError');
-const scssFileTest=require('./scss');
+const componentScssValidation=require('./ComponentScssValidation');
+const componentScssValidationNpm=require('./ComponentScssValidationFromNpm');
 
 const measureFileSizesBeforeBuild = FileSizeReporter.measureFileSizesBeforeBuild;
 const printFileSizesAfterBuild = FileSizeReporter.printFileSizesAfterBuild;
@@ -43,10 +44,10 @@ if (!checkRequiredFiles([paths.appHtml, paths.appIndexJs])) {
 
 var argv = require('minimist')(process.argv.slice(2));
 // console.log(argv);
-// console.log(argv.scssconfig);
+// console.log(argv.componentScssConfig);
 let ignoreFile;
-if(argv.scssconfig){
-    ignoreFile =  path.join(__dirname, '..', argv.scssconfig)
+if(argv.componentScssConfig){
+    ignoreFile =  path.join(path.resolve("."), argv.componentScssConfig)
 }else{
     ignoreFile = null;
 }
@@ -113,7 +114,9 @@ measureFileSizesBeforeBuild(paths.appBuild)
 // Create the production build and print the deployment instructions.
 function build(previousFileSizes) {
   console.log('Creating an optimized production build...');
-  scssFileTest(ignoreFile);
+  console.log("deprecated :::::: componentScssValidation using new :::: componentScssValidationNpm in webpack build ")
+  // componentScssValidation(ignoreFile);
+  componentScssValidationNpm(ignoreFile);
   let compiler = webpack(config);
   return new Promise((resolve, reject) => {
     compiler.run((err, stats) => {

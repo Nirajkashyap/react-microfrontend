@@ -1,6 +1,9 @@
 const path = require('path');
-const scssFileTest = require('./scss');
+const componentScssValidation = require('./ComponentScssValidation');
+const componentScssValidationNpm=require('./ComponentScssValidationFromNpm');
+const ignoreFilePath = 'scripts/ComponentScssConfig';
+const ignoreFile = path.join(path.resolve("."), ignoreFilePath)
 
-const ignoreFile = path.join(__dirname,  './scssignore.js')
 
-scssFileTest(ignoreFile);
+// componentScssValidation(ignoreFile);
+componentScssValidationNpm(ignoreFile);

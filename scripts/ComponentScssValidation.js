@@ -17,8 +17,9 @@ module.exports = function (configFileName) {
 
         ignoreFiles = ignoreFiles.concat(configFile.ignoreFiles)
     }
-    const srcDir = path.join(__dirname,'../src/components');
-    console.log(ignoreFiles);
+    let srcDirPath = configFile.srcDir ? configFile.srcDir : ".";
+    const srcDir = path.join(path.resolve("."),srcDirPath);
+    console.log("ignoreFiles ",ignoreFiles);
     glob("**/*.tsx", { cwd  : srcDir , ignore : ignoreFiles}, function (er, files) {
         // files is an array of filenames.
         // If the `nonull` option is set, and nothing

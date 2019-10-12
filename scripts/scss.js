@@ -6,7 +6,7 @@ const glob = require("glob");
 
 module.exports = function (configFileName) {
 
-    console.log(configFileName ,' ...');
+    console.log('configFileName ' , configFileName);
 
     // console.log(path.join(__dirname,  configFileName))
     let configFile =  configFileName ? require(configFileName) : '';
@@ -33,6 +33,8 @@ module.exports = function (configFileName) {
             // console.log(basename)
             let errorFlag = false;
             fs.readFile(fileName, 'utf8', function (err, contents) {
+                // note 
+                console.log("regex is to get first root div in jsx i.e after return statement first root div");
                 // const regex = /render\(\)\s+{\s+return\s\(\s+<.*>/g;
                 // const regex = /return\s\(\s.<.*>/g
                 const regex = /return\s*\((.|\n)*<(.|\n)*>/g
@@ -50,7 +52,8 @@ module.exports = function (configFileName) {
 
                     let tempFileNameArray = fileName.split("/");
                     let expectedClassName = tempFileNameArray[tempFileNameArray.length - 1].split(".")[0];
-                    // console.log(className.split(" "));
+                    console.log("get all classname of root div in array " , className.split(" ") );
+                   
                     // console.log(className.split(" ").includes(expectedClassName+'-cmp'));
                     if (className.split(" ").includes(expectedClassName+'-cmp')) {
                         // console.log("correct classname for root div of jsx/tsx");

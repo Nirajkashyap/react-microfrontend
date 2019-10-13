@@ -65,7 +65,6 @@ before_deploy:
 - PUBLIC_URL=https://nirajkashyap.github.io/react-microfrontend npm run build
 - ls
 - git status
-- git diff
 - pwd
 # - test $TRAVIS_TEST_RESULT = 0 \# check that build passed successfully
   # && cd $TRAVIS_BUILD_DIR \

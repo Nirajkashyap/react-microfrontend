@@ -58,7 +58,7 @@ const asyncComponent = (importComponent) => {
                     window['appPaths'][key]['exposedModule'] =  cloneObject(window['tempLazyLoaded']);
                     console.log(window['appPaths'][key]);
 
-                    const cmpDefinition = window['appPaths'][key]['exposedModule']['index'];
+                    const cmpDefinition = window['appPaths'][key]['exposedModule'][window['appPaths'][key]['moduleComponent']];
                     this.setState({component: cmpDefinition , componentData : this.props.passedProps});
 
                     // below is old one
@@ -129,7 +129,7 @@ const AsyncPrivateRoute = ({component: Component, ...rest}) => (
                     // decide which cmp to return from exposedModule
                     console.log(window['appPaths'][key]['exposedModule']['index']);
                     
-                    const tempCmp =  window['appPaths'][key]['exposedModule']['index'];
+                    const tempCmp =  window['appPaths'][key]['exposedModule'][window['appPaths'][key]['moduleComponent']];
                     console.log(tempCmp);
                     const Cmp = React.createElement(tempCmp, props, null);
                     console.log(Cmp);

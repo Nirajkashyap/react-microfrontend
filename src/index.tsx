@@ -35,7 +35,8 @@ window['appPaths'] = {};
 window['appPaths']['org'] =  {
     src : 'http://localhost:8082/static/js/assets/Org.module.js',
     isLoaded : false,
-    exposedModule : null
+    exposedModule : null,
+    moduleComponent : 'index'
 };
 if(process.env.REACT_APP_SUB_MODULE === "true"){
     window['appPaths']['org'].src = 'https://nirajkashyap.github.io/react-microfrontend-submodule/static/js/assets/Org.module.js'

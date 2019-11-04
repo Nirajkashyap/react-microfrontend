@@ -18,27 +18,50 @@ import * as redux_observable from 'redux-observable';
 import * as rxoperators from 'rxjs/operators';
 
 /* tslint:disable:no-string-literal */
-window['ReactDOM'] = ReactDOM;
-window['React'] = React;
-window['react-redux'] = react_redux;
-window['redux'] = redux;
-window['reactstrap'] = reactstrap;
-window['qs'] = qs;
-window['reacthistory'] = history;
-window['rxjs'] = rxjs;
-window['redux-observable'] = redux_observable;
-window['rxoperators'] = rxoperators;
+let microFrontendReactV16 = {};
+microFrontendReactV16 = {};
+
+microFrontendReactV16['ReactDOM'] = ReactDOM;
+microFrontendReactV16['React'] = React;
+microFrontendReactV16['react-redux'] = react_redux;
+microFrontendReactV16['redux'] = redux;
+microFrontendReactV16['reactstrap'] = reactstrap;
+microFrontendReactV16['qs'] = qs;
+microFrontendReactV16['reacthistory'] = history;
+microFrontendReactV16['rxjs'] = rxjs;
+microFrontendReactV16['redux-observable'] = redux_observable;
+microFrontendReactV16['rxoperators'] = rxoperators;
+
+Object.defineProperty(window, "microFrontendReactV16", {
+    value: Object.freeze(microFrontendReactV16),
+    writable: false
+
+});
 
 window['appPaths'] = {};
 // define any url path runtime and load it's rollup react component module runtime
 // example > below
-window['appPaths']['org'] =  {
+window['appPaths']['/org'] =  {
     src : 'http://localhost:8082/static/js/assets/Org.module.js',
     isLoaded : false,
-    exposedModule : null
+    exposedModule : null,
+    moduleComponent : 'index',
+    isCookieSecure : true
 };
 if(process.env.REACT_APP_SUB_MODULE === "true"){
-    window['appPaths']['org'].src = 'https://nirajkashyap.github.io/react-microfrontend-submodule/static/js/assets/Org.module.js'
+    window['appPaths']['/org'].src = 'https://nirajkashyap.github.io/react-microfrontend-submodule/static/js/assets/Org.module.js'
+      
+}
+// new entry
+window['appPaths']['/org/testpage'] =  {
+    src : 'http://localhost:8082/static/js/assets/Org.module.js',
+    isLoaded : false,
+    exposedModule : null,
+    moduleComponent : 'testpage',
+    isCookieSecure : false
+};
+if(process.env.REACT_APP_SUB_MODULE === "true"){
+    window['appPaths']['/org/testpage'].src = 'https://nirajkashyap.github.io/react-microfrontend-submodule/static/js/assets/Org.module.js'
       
 }
 

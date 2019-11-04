@@ -2,6 +2,7 @@ import * as React from 'react';
 import "./Org.module.scss";
 
 import OrgDetailsContainer from './containers/Org';
+import OrgTestPage from './components/OrgTestPage';
 
 
 /* tslint:disable:no-string-literal */
@@ -40,7 +41,7 @@ export class Org extends React.Component<any, any> {
         return (
             <div className="Org-cmp col-sm-9">
 
-                  Hello from Daynamic (runtime + lazy ) component, please enter github org name to get info.
+                  Hello from Dynamic (runtime + lazy ) component, this is CookieSecure page. please enter github org name to get info.
                 <OrgDetailsContainer />
 
             </div>
@@ -50,5 +51,6 @@ export class Org extends React.Component<any, any> {
 // expose as many cmp as required
 window['tempLazyLoaded'] =  {
     index : Org,
-    wrapper : OrgDetailsContainer
+    wrapper : OrgDetailsContainer,
+    testpage : OrgTestPage
 };

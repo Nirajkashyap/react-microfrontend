@@ -117,19 +117,24 @@ export function postRequest(requestOptions : any, recievingFunction: any, reciev
 
 /* tslint:disable:no-string-literal */
 // expose api client
+let apiClient;
+apiClient = {};
 
-window['apiClient'] = {};
-
-Object.defineProperty(window['apiClient'], "getRequest", {
+Object.defineProperty(apiClient, "getRequest", {
     value: Object.freeze(getRequest),
     writable: false
 });
 
-Object.defineProperty(window['apiClient'], "postRequest", {
+Object.defineProperty(apiClient, "postRequest", {
     value: Object.freeze(postRequest),
     writable: false
 
 });
 
+Object.defineProperty(window, "apiClient", {
+    value: Object.freeze(apiClient),
+    writable: false
+
+});
 
 /* tslint:disable:no-string-literal */

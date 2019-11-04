@@ -186,21 +186,21 @@ glob("**/*.module.tsx", {cwd: srcDir, ignore: ignoreFiles}, function (er, files)
         //     preferConst,
         //     strict
         // };
-
+        let microFrontendReactV16 = {};
         const outputOptions = {
             // core output options
             dir: outDirPath,
             format: 'umd',
             globals: {
-                react: 'React',
-                reactstrap: 'reactstrap',
-                'query-string' : 'qs',
-                'react-loader-spinner': 'react-loader-spinner',
-                'react-redux' : 'react-redux',
-                redux : 'redux',
-                'rxjs' : 'rxjs',
-                'redux-observable' : 'redux-observable',
-                'rxjs/operators' : 'rxoperators'
+                react: 'microFrontendReactV16.React',
+                reactstrap: 'microFrontendReactV16.reactstrap',
+                'query-string' : 'microFrontendReactV16.qs',
+                'react-loader-spinner': 'microFrontendReactV16.react-loader-spinner',
+                'react-redux' : 'microFrontendReactV16.react-redux',
+                redux : 'microFrontendReactV16.redux',
+                'rxjs' : 'microFrontendReactV16.rxjs',
+                'redux-observable' : 'microFrontendReactV16.redux-observable',
+                'rxjs/operators' : 'microFrontendReactV16.rxoperators'
 
             },
             name : path.parse(fileName).name.split(".")[0],

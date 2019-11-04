@@ -41,14 +41,27 @@ Object.defineProperty(window, "microFrontendReactV16", {
 window['appPaths'] = {};
 // define any url path runtime and load it's rollup react component module runtime
 // example > below
-window['appPaths']['org'] =  {
+window['appPaths']['/org'] =  {
     src : 'http://localhost:8082/static/js/assets/Org.module.js',
     isLoaded : false,
     exposedModule : null,
-    moduleComponent : 'index'
+    moduleComponent : 'index',
+    isCookieSecure : true
 };
 if(process.env.REACT_APP_SUB_MODULE === "true"){
-    window['appPaths']['org'].src = 'https://nirajkashyap.github.io/react-microfrontend-submodule/static/js/assets/Org.module.js'
+    window['appPaths']['/org'].src = 'https://nirajkashyap.github.io/react-microfrontend-submodule/static/js/assets/Org.module.js'
+      
+}
+// new entry
+window['appPaths']['/org/testpage'] =  {
+    src : 'http://localhost:8082/static/js/assets/Org.module.js',
+    isLoaded : false,
+    exposedModule : null,
+    moduleComponent : 'testpage',
+    isCookieSecure : false
+};
+if(process.env.REACT_APP_SUB_MODULE === "true"){
+    window['appPaths']['/org/testpage'].src = 'https://nirajkashyap.github.io/react-microfrontend-submodule/static/js/assets/Org.module.js'
       
 }
 

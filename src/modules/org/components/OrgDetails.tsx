@@ -2,7 +2,7 @@ import * as React from 'react';
 import './OrgDetails.scss';
 
 /* tslint:disable:no-string-literal */
-const qs = window['qs'];
+const qs = window['microFrontendReactV16']['qs'];
 /* tslint:disable:no-string-literal */
 // import * as qs from 'query-string';
 

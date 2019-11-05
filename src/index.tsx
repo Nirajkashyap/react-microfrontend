@@ -19,7 +19,7 @@ import * as rxoperators from 'rxjs/operators';
 
 /* tslint:disable:no-string-literal */
 let microFrontendReactV16 = {};
-
+microFrontendReactV16 = {}
 microFrontendReactV16['ReactDOM'] = ReactDOM;
 microFrontendReactV16['React'] = React;
 microFrontendReactV16['react-redux'] = react_redux;

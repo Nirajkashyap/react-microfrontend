@@ -5,19 +5,19 @@
 [![HitCount](http://hits.dwyl.io/Nirajkashyap/react-microfrontend.svg)](http://hits.dwyl.io/Nirajkashyap/react-microfrontend)
 
 MicroFrontend Reading: <br>
-Must Read : https://martinfowler.com/articles/micro-frontends.html @ThoughtWorks <br>
-https://hasgeek.com/reactfoo/2019-delhi/proposals/micro-frontend-architecture-a-case-study-of-the-fi-sP8U2fGsvBgu3vi9m6cF8R @walmart & @hasgeek <br>
-presentation https://drive.google.com/file/d/1_qr-U2JwF6LP0aom7CKaOD3BlOFWK5aP/view @walmart - Why not React Loadables <br>
-https://dev.to/dabit3/building-micro-frontends-with-react-vue-and-single-spa-52op  React + Vue <br>
-https://www.xenonstack.com/insights/what-is-micro-frontend/ <br>
-presentation  : https://speakerdeck.com/naltatis/micro-frontends-building-a-modern-webapp-with-multiple-teams <br>
-https://dev.to/phodal/micro-frontend-architecture-in-action-4n60 <br>
+* Must Read : https://martinfowler.com/articles/micro-frontends.html @ThoughtWorks <br>
+* https://hasgeek.com/reactfoo/2019-delhi/proposals/micro-frontend-architecture-a-case-study-of-the-fi-sP8U2fGsvBgu3vi9m6cF8R @walmart & @hasgeek <br>
+* presentation https://drive.google.com/file/d/1_qr-U2JwF6LP0aom7CKaOD3BlOFWK5aP/view @walmart - Why not React Loadables <br>
+* https://dev.to/dabit3/building-micro-frontends-with-react-vue-and-single-spa-52op  React + Vue <br>
+* https://www.xenonstack.com/insights/what-is-micro-frontend/ <br>
+* presentation  : https://speakerdeck.com/naltatis/micro-frontends-building-a-modern-webapp-with-multiple-teams <br>
+* https://dev.to/phodal/micro-frontend-architecture-in-action-4n60 <br>
 
 other links:<br>
-https://github.com/micro-frontends-demo <br>
-https://github.com/phodal/mooa <br>
-https://github.com/CanopyTax/single-spa <br>
-https://github.com/PlaceMe-SAS/single-spa-angular-cli-examples <br>
+* https://github.com/micro-frontends-demo <br>
+* https://github.com/phodal/mooa <br>
+* https://github.com/CanopyTax/single-spa <br>
+* https://github.com/PlaceMe-SAS/single-spa-angular-cli-examples <br>
 
 
 Problems <br> 
@@ -55,27 +55,34 @@ Object.defineProperty(window, "microFrontendReactV16", {
 
 <h1> updates after typescript Create React App CLI base app </h1> 
 
-1. dynamic-import and code splitting
-dynamic-import from url was not working like import('https://otherhost.com/someother.js') <br> 
-reference : https://github.com/tc39/proposal-dynamic-import  <br>
+1. <b>dynamic-import and code splitting</b><br>
+<b> <i> problems : </i> </b> <br>
+* dynamic-import from url was not working. 
+        
+```javascript
+        import('https://otherhost.com/someother.js') 
+```
 
-get react component code only and don't load react lib  use <a href="https://rollupjs.org/guide/en/">rollup</a> for this.
-example : 
-![rollup Build code ](/rollupBuild.gif)
-only sub module of components and no react lib codebase
-![rollup Build code ](/subModule.gif)
+* reference : https://github.com/tc39/proposal-dynamic-import  <br>
 
-[Dynamic route declaration](./src/index.tsx) by window appPaths <br> 
-[routing code base](./src/router.tsx) for code-splitting <br>
-[rollup script](./scripts/rollup.build.js) to build sub module of components
+<b> <i> solutions : </i> </b> <br>
 
-2. default scss loader added in webpack config and [scss validator script](./scripts/scss.js) is added in [build process](https://github.com/Nirajkashyap/react-microfrotend/blob/b920d7dc720819a6a027d7cd9ae1ed7e536857c1/scripts/build.js#L116) 
+  get react component code only and don't load react lib use <a href="https://rollupjs.org/guide/en/">rollup</a> for this.
+  example : 
+  * Dynamic ( runtime + lazy ) javascript loading ![rollup Build code ](/rollupBuild.gif) <br><br>
+  * Only sub module of components and no react lib codebase ![rollup Build code ](/subModule.gif)
+
+  [Dynamic route declaration](./src/index.tsx) by window appPaths <br> 
+  [routing code base](./src/router.tsx) for code-splitting <br>
+  [rollup script](./scripts/rollup.build.js) to build sub module of components <br><br>
+ 
+2.Default scss loader added in webpack config and [scss validator script](./scripts/scss.js) is added in [build process](https://github.com/Nirajkashyap/react-microfrotend/blob/b920d7dc720819a6a027d7cd9ae1ed7e536857c1/scripts/build.js#L116) <br><br> 
 
 
-3. Some Env used in project<br> 
-REACT_APP_SUB_MODULE - used for defining javascript source url for SUB_MODULE - configured in travis ci env<br>
-REACT_APP_HASH_HISTORY -  used to decide which history object to use. example useful for build hash history for gh-pages  - configured in travis ci env<br>
-REACT_APP_API_URL - used to config api location <br>
+3.Some Env used in project<br> 
+* REACT_APP_SUB_MODULE - used for defining javascript source url for SUB_MODULE - configured in travis ci env<br>
+* REACT_APP_HASH_HISTORY -  used to decide which history object to use. example useful for build hash history for gh-pages  - configured in travis ci env<br>
+* REACT_APP_API_URL - used to config api location <br>
 
 <h1> typescript Create React App base </h1> 
 

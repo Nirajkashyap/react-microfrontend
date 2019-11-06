@@ -28,6 +28,7 @@ export default class Login extends React.Component<IProps,any> {
         super(props);
         this.handleChange = this.handleChange.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
+        this.handleTestPage = this.handleTestPage.bind(this);
     }
 
     public handleChange(event) {
@@ -35,6 +36,12 @@ export default class Login extends React.Component<IProps,any> {
         if(event.target.value) {
             this.setState({[event.target.id]:event.target.value})
         }
+    }
+
+    public handleTestPage(event) {
+        event.preventDefault();
+        this.props.history.push('/org/testpage')
+        
     }
 
     public handleSubmit(event) {
@@ -96,6 +103,7 @@ export default class Login extends React.Component<IProps,any> {
                         </div>
                     </div>
                 </div>
+                <a href="#" onClick={(e) => this.handleTestPage(e)}> lazy loaded unsecured page </a>
             </div>
         );
 

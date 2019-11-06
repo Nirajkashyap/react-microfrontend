@@ -90,7 +90,8 @@ Object.defineProperty(window, "microFrontendReactV16", {
 run end to end application
 
 live example : <br>
-https://nirajkashyap.github.io/react-microfrontend/ from https://nirajkashyap.github.io/react-microfrontend/ <br> 
-and sub module https://nirajkashyap.github.io/react-microfrontend-submodule/static/js/assets/Org.module.js is loaded from https://github.com/Nirajkashyap/react-microfrontend-submodule
+main module : https://nirajkashyap.github.io/react-microfrontend/ from https://nirajkashyap.github.io/react-microfrontend/ <br> 
+sub module  : https://nirajkashyap.github.io/react-microfrontend-submodule/static/js/assets/Org.module.js is loaded from https://github.com/Nirajkashyap/react-microfrontend-submodule
 
-[Create React App - README](./README-CRA.md)
+
+Basic [Create React App - README](./README-CRA.md)

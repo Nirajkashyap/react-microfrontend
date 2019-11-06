@@ -42,7 +42,7 @@ const asyncComponent = (importComponent) => {
 
             const key = this.props.passedProps.location.pathname;
             const runtimePathUrl = window['appPaths'][key]['src'];
-            console.log(runtimePathUrl);
+            console.log('script location for  ' + key + ' is : ' ,  runtimePathUrl);
 
             const scriptSource = document.createElement('script');
             scriptSource.src = runtimePathUrl;
@@ -54,7 +54,7 @@ const asyncComponent = (importComponent) => {
                     window['appPaths'][key]['isLoaded'] = true;
 
                     // deep copy object from tempLazyLoaded and flush tempLazyLoaded
-                    console.log(window['tempLazyLoaded']);
+                    console.log('tempLazyLoaded object from script ' ,  window['tempLazyLoaded']);
                     window['appPaths'][key]['exposedModule'] =  cloneObject(window['tempLazyLoaded']);
                     console.log(window['appPaths'][key]);
 
@@ -118,7 +118,7 @@ const AsyncPrivateRoute = ({component: Component, ...rest}) => (
             // props.location.pathname indexOf can load main module and main module can return relative cmp
             const key = props.location.pathname;
             console.log('current runtime paths are ' , window['appPaths']);
-            console.log(window['appPaths'][key]);
+            console.log('value for this path : ' + key + ' is : ' , window['appPaths'][key]);
 
             const runtimePath = window['appPaths'][key];
 
@@ -132,12 +132,12 @@ const AsyncPrivateRoute = ({component: Component, ...rest}) => (
                             // caching control
                             if(runtimePath['isLoaded'] ){
                                 // decide which cmp to return from exposedModule
-                                console.log(window['appPaths'][key]);
+                                // console.log(window['appPaths'][key]);
                                 
                                 const tempCmp =  window['appPaths'][key]['exposedModule'][window['appPaths'][key]['moduleComponent']];
-                                console.log(tempCmp);
+                                // console.log(tempCmp);
                                 const Cmp = React.createElement(tempCmp, props, null);
-                                console.log(Cmp);
+                                console.log('component definition form caching ' , Cmp);
                                 
                                 return Cmp;
                                        
@@ -153,7 +153,7 @@ const AsyncPrivateRoute = ({component: Component, ...rest}) => (
                             }
 
                     }else{
-                        console.log('runtime path is CookieSecure but user has not logged-in. so redirecting to root path');
+                        console.log('runtime path is defined and path(url) is CookieSecure but user has not logged-in. so redirecting to root path');
                         return <Redirect
                                     to={{
                                         pathname: "/",
@@ -170,13 +170,12 @@ const AsyncPrivateRoute = ({component: Component, ...rest}) => (
                         console.log(window['appPaths'][key]);
                         
                         const tempCmp =  window['appPaths'][key]['exposedModule'][window['appPaths'][key]['moduleComponent']];
-                        console.log(tempCmp);
+                        // console.log(tempCmp);
                         const Cmp = React.createElement(tempCmp, props, null);
-                        console.log(Cmp);
+                        console.log('component definition form caching ' , Cmp);
                         
                         return Cmp;
                                 
-                    // return   window['appPaths'][key]['exposedModule']['index'];
 
                     }else{
                         const AsyncCmp = asyncComponent(() => {

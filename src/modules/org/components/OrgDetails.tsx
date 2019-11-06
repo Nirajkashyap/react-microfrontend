@@ -64,7 +64,7 @@ export default class OrgDetails extends React.Component<any, IState> {
             // both below line of code are required to trigger api call from componentWillReceiveProps
             // this.props.fetchGithubOrgStart();
             console.log(this.props);
-            window['reacthistory'].push('/org?githubOrgName=' + this.state.githubOrgName);
+            window['microFrontendReactV16']['reacthistory'].push('/org?githubOrgName=' + this.state.githubOrgName);
 
         }
     }

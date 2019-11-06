@@ -11,7 +11,8 @@ export default class SideBar extends React.Component<any, any> {
         this.state = {
             sideBarLinks: [
                 {path: 'search', name: 'Github User Repo'},
-                {path: 'org', name: 'Github Organization '}
+                {path: 'org', name: 'Github Organization '},
+                {path: 'org/testpage', name: 'lazy loaded  unsecure test page'}
                 ]
         }
 

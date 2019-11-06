@@ -85,10 +85,10 @@ export function configureStore(initialState) {
     storeX['asyncReducers'] = {};
     Object.keys(rootReducerTree).forEach(key => {
         const value = rootReducerTree[key];
-        console.log(value);
+        // console.log(value);
         storeX['asyncReducers'][key] = value
     });
-    console.log(storeX['asyncReducers']);
+    // console.log(storeX['asyncReducers']);
 
 
 
@@ -98,7 +98,7 @@ export function configureStore(initialState) {
 
         storeX['asyncReducers'][key] = asyncReducer;
         const newRootReducer = createReducer(storeX['asyncReducers']);
-        console.log(newRootReducer);
+        // console.log(newRootReducer);
         storeX.replaceReducer(connectRouter(history)(newRootReducer));
     };
 
@@ -112,7 +112,7 @@ epicMiddleware.run(rootEpic);
 window['store'] = store;
 
 function createReducer(oldRootreducer) {
-    console.log(oldRootreducer);
+    // console.log(oldRootreducer);
     // const newRootReducer = combineReducers({
     //         ...oldRootreducer,
     //     ...newAsyncReducer

@@ -48,7 +48,7 @@ window['appPaths']['/org'] =  {
     isCookieSecure : true
 };
 if(process.env.REACT_APP_SUB_MODULE === "true"){
-    window['appPaths']['/org'].src = 'https://nirajkashyap.github.io/react-microfrontend-submodule/static/js/assets/Org.module.js'
+    window['appPaths']['/org'].src = process.env.REACT_APP_SUB_MODULE_URL
       
 }
 // new entry
@@ -60,7 +60,7 @@ window['appPaths']['/org/testpage'] =  {
     isCookieSecure : false
 };
 if(process.env.REACT_APP_SUB_MODULE === "true"){
-    window['appPaths']['/org/testpage'].src = 'https://nirajkashyap.github.io/react-microfrontend-submodule/static/js/assets/Org.module.js'
+    window['appPaths']['/org/testpage'].src = process.env.REACT_APP_SUB_MODULE_URL
       
 }
 
